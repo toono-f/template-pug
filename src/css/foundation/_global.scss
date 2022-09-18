@@ -14,23 +14,25 @@ body {
   min-height: 100%;
   // 以下設定必要
   font-family: ff(ja);
+  font-size: rem(16);
   font-weight: fw(normal);
   line-height: lh(md);
   color: c(default);
   letter-spacing: ls(xs);
-  @include fs-all(14, 16);
-  // 改行設定
-  word-wrap: break-word;
-  // テキスト自動拡大アルゴリズムを有効化
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
   // アンチエイリアスを調節（mac）
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include l-mobile {
-    // テキスト自動拡大アルゴリズムを無効化
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
+  @include mq(xl) {
+    font-size: rem(16);
+    // あえて順に記載（build後のmqpackerを考慮）
+  }
+  @include mq(lg) {
+    font-size: rem(16);
+    // あえて順に記載（build後のmqpackerを考慮）
+  }
+  @include mq {
+    font-size: rem(14);
+    // あえて順に記載（build後のmqpackerを考慮）
   }
   @include print {
     zoom: 0.5;
@@ -105,11 +107,6 @@ input::placeholder {
 }
 
 /*! purgecss end ignore */
-
-/* IE */
-// input:-ms-input-placeholder {
-//   color: rgba(c(default), 0.5);
-// }
 
 // *:focus {
 //   outline: none; // クリックしたときの青い枠線

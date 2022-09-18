@@ -16,7 +16,7 @@
   }
 }
 
-@include l-pc {
+@include mq(xl) {
   .u-d-pc {
     &-b {
       display: block;
@@ -36,7 +36,7 @@
   }
 }
 
-@include l-tablet {
+@include mq(lg) {
   .u-d-tb {
     &-b {
       display: block;
@@ -56,7 +56,7 @@
   }
 }
 
-@include l-mobile {
+@include mq {
   .u-d-sp {
     &-b {
       display: block;

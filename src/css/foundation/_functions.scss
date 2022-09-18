@@ -47,18 +47,6 @@
   @return math.div($fs, $bp) * 100vh;
 }
 // ==========================================================================
-// vw(tb)
-// ==========================================================================
-@function tb($fs, $bp: 1024) {
-  @return math.div($fs, $bp) * 100vw;
-}
-// ==========================================================================
-// vw(sp)
-// ==========================================================================
-@function sp($fs, $bp: 375) {
-  @return math.div($fs, $bp) * 100vw;
-}
-// ==========================================================================
 // min  max
 // ==========================================================================
 @function _min($values...) {
@@ -87,19 +75,5 @@
     @return rem($top) rem($right);
   } @else {
     @return rem($top) rem($right) rem($bottom) rem($left);
-  }
-}
-@function sh-tb($top, $right, $bottom: $top, $left: $right) {
-  @if ($bottom == $top and $left == $right) {
-    @return tb($top) tb($right);
-  } @else {
-    @return tb($top) tb($right) tb($bottom) tb($left);
-  }
-}
-@function sh-sp($top, $right, $bottom: $top, $left: $right) {
-  @if ($bottom == $top and $left == $right) {
-    @return sp($top) sp($right);
-  } @else {
-    @return sp($top) sp($right) sp($bottom) sp($left);
   }
 }

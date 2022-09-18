@@ -40,7 +40,7 @@ module.exports.serve = {
 };
 
 const { DefinePlugin } = require('webpack');
-// const TerserPlugin = require('terser-webpack-plugin');  // license を main.min.jsに含める場合コメント解除
+// const TerserPlugin = require('terser-webpack-plugin'); // license を main.min.jsに含める場合コメント解除
 module.exports.scripts = {
   src: [`./${DIR.SRC}/**/*.js`],
   dest: {
@@ -54,7 +54,7 @@ module.exports.scripts = {
     output: {
       filename: `[name].js`,
     },
-    target: ['web', 'es5'], // IE非対応の場合は safari10 まで対応させるようにes6に変更
+    target: ['web', 'es6'], // IEに対応する場合es5を指定
     module: {
       rules: [
         {

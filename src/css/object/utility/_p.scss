@@ -2,76 +2,64 @@ $count: $count;
 
 .u-p {
   @for $i from 0 through $count {
-    &t-#{$i * 5} {
-      padding-top: rem(floor(($i * 5) * 1));
+    &t-#{$i * 2} {
+      padding-top: rem(floor(($i * 2) * 1));
     }
-    &b-#{$i * 5} {
-      padding-bottom: rem(floor(($i * 5) * 1));
+    &b-#{$i * 2} {
+      padding-bottom: rem(floor(($i * 2) * 1));
     }
-    &r-#{$i * 5} {
-      padding-right: rem(floor(($i * 5) * 1));
+    &r-#{$i * 2} {
+      padding-right: rem(floor(($i * 2) * 1));
     }
-    &l-#{$i * 5} {
-      padding-left: rem(floor(($i * 5) * 1));
-    }
-  }
-  @for $i from 0 through $count {
-    @include l-pc {
-      &t-pc-#{$i * 5} {
-        padding-top: rem(floor(($i * 5) * 1));
-      }
-      &b-pc-#{$i * 5} {
-        padding-bottom: rem(floor(($i * 5) * 1));
-      }
-      &r-pc-#{$i * 5} {
-        padding-right: rem(floor(($i * 5) * 1));
-      }
-      &l-pc-#{$i * 5} {
-        padding-left: rem(floor(($i * 5) * 1));
-      }
+    &l-#{$i * 2} {
+      padding-left: rem(floor(($i * 2) * 1));
     }
   }
   @for $i from 0 through $count {
-    @include l-tablet {
-      &t-tb-#{$i * 5} {
-        padding-top: rem(floor(($i * 5) * 1));
+    @include mq(xl) {
+      &t-pc-#{$i * 2} {
+        padding-top: rem(floor(($i * 2) * 1));
       }
-      &b-tb-#{$i * 5} {
-        padding-bottom: rem(floor(($i * 5) * 1));
+      &b-pc-#{$i * 2} {
+        padding-bottom: rem(floor(($i * 2) * 1));
       }
-      &r-tb-#{$i * 5} {
-        padding-right: rem(floor(($i * 5) * 1));
+      &r-pc-#{$i * 2} {
+        padding-right: rem(floor(($i * 2) * 1));
       }
-      &l-tb-#{$i * 5} {
-        padding-left: rem(floor(($i * 5) * 1));
+      &l-pc-#{$i * 2} {
+        padding-left: rem(floor(($i * 2) * 1));
       }
     }
   }
   @for $i from 0 through $count {
-    @include l-mobile {
-      &t-sp-#{$i * 5} {
-        // padding-top: rem(floor(($i * 5) * 1));
-        padding-top: sp(floor(($i * 5) * 1)); // vwを利用する場合
-        // padding-top: mn(floor(($i * 5) * 1)); // 最大値のみ設定する場合
-        // padding-top: cp(floor(($i * 5) * 1), floor(($i * 5) * 2)); // 最小値も設定する場合
+    @include mq(lg) {
+      &t-tb-#{$i * 2} {
+        padding-top: rem(floor(($i * 2) * 1));
       }
-      &b-sp-#{$i * 5} {
-        // padding-bottom: rem(floor(($i * 5) * 1));
-        padding-bottom: sp(floor(($i * 5) * 1)); // vwを利用する場合
-        // padding-bottom: mn(floor(($i * 5) * 1)); // 最大値のみ設定する場合
-        // padding-bottom: cp(floor(($i * 5) * 1), floor(($i * 5) * 2)); // 最小値も設定する場合
+      &b-tb-#{$i * 2} {
+        padding-bottom: rem(floor(($i * 2) * 1));
       }
-      &r-sp-#{$i * 5} {
-        // padding-right: rem(floor(($i * 5) * 1));
-        padding-right: sp(floor(($i * 5) * 1)); // vwを利用する場合
-        // padding-right: mn(floor(($i * 5) * 1)); // 最大値のみ設定する場合
-        // padding-right: cp(floor(($i * 5) * 1), floor(($i * 5) * 2)); // 最小値も設定する場合
+      &r-tb-#{$i * 2} {
+        padding-right: rem(floor(($i * 2) * 1));
       }
-      &l-sp-#{$i * 5} {
-        // padding-left: rem(floor(($i * 5) * 1));
-        padding-left: sp(floor(($i * 5) * 1)); // vwを利用する場合
-        // padding-left: mn(floor(($i * 5) * 1)); // 最大値のみ設定する場合
-        // padding-left: cp(floor(($i * 5) * 1), floor(($i * 5) * 2)); // 最小値も設定する場合
+      &l-tb-#{$i * 2} {
+        padding-left: rem(floor(($i * 2) * 1));
+      }
+    }
+  }
+  @for $i from 0 through $count {
+    @include mq {
+      &t-sp-#{$i * 2} {
+        padding-top: rem(floor(($i * 2) * 1));
+      }
+      &b-sp-#{$i * 2} {
+        padding-bottom: rem(floor(($i * 2) * 1));
+      }
+      &r-sp-#{$i * 2} {
+        padding-right: rem(floor(($i * 2) * 1));
+      }
+      &l-sp-#{$i * 2} {
+        padding-left: rem(floor(($i * 2) * 1));
       }
     }
   }

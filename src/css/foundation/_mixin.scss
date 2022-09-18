@@ -8,16 +8,13 @@
     font-size: rem($sp);
   }
   @if ($tb) {
-    @include l-tablet {
+    @include mq(lg) {
       font-size: rem($tb);
     }
   }
   @if ($sp) {
-    @include l-mobile {
-      // font-size: rem($sp);
-      font-size: sp($sp); // vwを扱う場合
-      // font-size: mn($sp); // 最大値のみを設定する場合
-      // font-size: cp($value, $value * 2); // 最小値も設定する場合
+    @include mq {
+      font-size: rem($sp);
     }
   }
 }
@@ -31,18 +28,6 @@
 @mixin size-rem($w, $h: $w) {
   width: rem($w);
   height: rem($h);
-}
-@mixin size-mn($w, $h: $w) {
-  width: mn($w);
-  height: mn($h);
-}
-@mixin size-tb($w, $h: $w) {
-  width: tb($w);
-  height: tb($h);
-}
-@mixin size-sp($w, $h: $w) {
-  width: sp($w);
-  height: sp($h);
 }
 // ==========================================================================
 // border
@@ -66,18 +51,6 @@
 }
 @mixin circle-rem($x, $y: $x) {
   @include size(rem($x), rem($y));
-  border-radius: 50%;
-}
-@mixin circle-mn($x, $y: $x) {
-  @include size(mn($x), mn($y));
-  border-radius: 50%;
-}
-@mixin circle-tb($x, $y: $x) {
-  @include size(tb($x), tb($y));
-  border-radius: 50%;
-}
-@mixin circle-sp($x, $y: $x) {
-  @include size(sp($x), sp($y));
   border-radius: 50%;
 }
 // ==========================================================================

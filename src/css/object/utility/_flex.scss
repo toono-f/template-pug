@@ -46,7 +46,7 @@
   }
 }
 
-@include l-pc {
+@include mq(xl) {
   .u-flex-pc {
     display: flex;
   }
@@ -96,57 +96,7 @@
   }
 }
 
-@include l-more-than-mobile {
-  .u-flex-ct {
-    display: flex;
-  }
-  .u-flex-inline-ct {
-    display: inline-flex;
-  }
-  .u-flex--wrap-ct {
-    flex-wrap: wrap;
-  }
-  .u-flex--row-reverse-ct {
-    flex-direction: row-reverse;
-  }
-  .u-flex--col-reverse-ct {
-    flex-direction: column-reverse;
-  }
-  .u-flex--col-ct {
-    flex-direction: column;
-  }
-  .u-flex--hr-end-ct {
-    justify-content: flex-end;
-  }
-  .u-flex--hr-center-ct {
-    justify-content: center;
-  }
-  .u-flex--hr-between-ct {
-    justify-content: space-between;
-  }
-  .u-flex--hr-around-ct {
-    justify-content: space-around;
-  }
-  .u-flex--vt-start-ct {
-    align-items: flex-start;
-  }
-  .u-flex--vt-baseline-ct {
-    align-items: baseline;
-  }
-  .u-flex--vt-end-ct {
-    align-items: flex-end;
-  }
-  .u-flex--vt-center-ct {
-    align-items: center;
-  }
-  @for $i from -1 through 10 {
-    .u-flex--order-#{$i}-ct {
-      order: $i;
-    }
-  }
-}
-
-@include l-tablet {
+@include mq(lg) {
   .u-flex-tb {
     display: flex;
   }
@@ -190,7 +140,7 @@
   }
 }
 
-@include l-mobile {
+@include mq {
   .u-flex-sp {
     display: flex;
   }

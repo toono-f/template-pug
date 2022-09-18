@@ -1,0 +1,40 @@
+-
+  let titleMerge = (page.title != '') ? page.title + ' | ' + data.meta.websiteName : data.meta.websiteName;
+
+meta(charset="utf-8")
+
+//- IE対応する場合、以下コメント解除
+//- meta(http-equiv="X-UA-Compatible", content="IE=edge")
+
+title #{titleMerge}
+meta(name="viewport", content="width=device-width")
+meta(name="description", content=page.description)
+meta(name="keywords", content=``)
+meta(name="format-detection" content="telephone=no")
+
+//- 375px以下の端末対応
+script var viewport=document.querySelector('meta[name="viewport"]');function switchViewport(){var value=window.outerWidth>375?"width=device-width,initial-scale=1.0":"width=375";if(viewport.getAttribute("content")!==value){viewport.setAttribute("content",value)}} switchViewport();window.addEventListener("resize",switchViewport);
+
+//- CSS
+style .l-page { visibility: hidden; opacity: 0; }
+//- 非同期ロードする場合（ページスピードアップ）
+link(rel="preload" href=`${page.path}assets/css/main.css?${toFileName}` as="style")
+link(rel="stylesheet" href=`${page.path}assets/css/main.css?${toFileName}` media="print" onload="this.media='all'")
+//- 通常の読み込み方法
+//- link(rel="stylesheet" href=`${page.path}assets/css/main.css?${toFileName}`)
+
+//- OGP
+meta(property="og:title" content=`${page.title}`)
+meta(property="og:image" content=``)
+meta(property="og:url" content=`${data.meta.websiteDomain}`)
+meta(property="og:site_name" content=`${data.meta.websiteName}`)
+meta( property="og:description" content=page.description)
+if page.id === "index"
+  meta(property="og:type" content="website")
+else
+  meta(property="og:type" content="article")
+
+//- favicon
+//- link(rel="icon" href=``)
+//- link(rel='apple-touch-icon' href=`` sizes="180x180")
+//- link(rel='icon' type='image/png' href=`` sizes="192x192")

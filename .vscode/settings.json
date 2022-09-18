@@ -1,0 +1,186 @@
+{
+  // htmlフォーマットルール参考：https://qiita.com/rubytomato@github/items/d4716c41a2d15c64f791
+  // 既定のHTMLフォーマッタを有効/無効にします
+  "html.format.enable": true,
+  // コンテンツを再フォーマットしてはならないタグをコンマで区切ってリストにします。'null' は、既定値の'pre' タグを表します。
+  "html.format.contentUnformatted": "pre,code,textarea",
+  // 末尾に改行を入れます。
+  "html.format.endWithNewline": false,
+  // 直前に改行を1つ入れるタグの、コンマで区切られたリストです。'null'は、既定値の"head, body, /html" を表します。
+  "html.format.extraLiners": "head, body, /html",
+  // 書式設定とインデント{{#foo}}および{{/foo}}。
+  "html.format.indentHandlebars": false,
+  // <head>セクションと<body>セクションをインデントします。
+  "html.format.indentInnerHtml": false,
+  // 1つのチャンク内に保持できる改行の最大数。無制限にするには、'null'を使います。
+  "html.format.maxPreserveNewLines": null,
+  // 要素の前にある既存の改行を保持するかどうか。要素の前でのみ機能し、タグの内側やテキストに対しては機能しません。
+  "html.format.preserveNewLines": true,
+  // 再フォーマットしてはならないタグの、コンマ区切りの一覧。'null'の場合、既定で https://www.w3.org/TR/html5/dom.html#phrasing-content にリストされているすべてのタグになります。
+  "html.format.unformatted": "wbr",
+  // 属性を折り返します。
+  "html.format.wrapAttributes": "auto",
+  // 1行あたりの最大文字数 (0=無効にする)。
+  "html.format.wrapLineLength": 0,
+  // 既定の JavaScript フォーマッタ設定
+  "javascript.format.enable": false,
+  // javascriptの構文チェック機能を無効化
+  "javascript.validate.enable": false,
+  // Emmetの候補を表示
+  "emmet.showSuggestionsAsSnippets": true,
+  // Emmetにもtailwindcssの補完を効かせたい場合
+  "tailwindCSS.emmetCompletions": true,
+  // 以下拡張子のみEmmetの入力を無効にする
+  "emmet.excludeLanguages": ["markdown", "pug"],
+  // jsxでも tailwindcssの自動補完機能を有効にする
+  "tailwindCSS.includeLanguages": { "plaintext": "javascript" },
+  // 絶対パスでAuto Importを行う
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  // 保存時のフォーマット処理
+  "editor.formatOnSave": true,
+  // VSCodeの組み込みリンターを無効にする
+  "css.validate": false,
+  "scss.validate": false,
+  // Stylelint を有効にする
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "scss"],
+  // 保存時に実行されるコードアクション
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  // 補完候補の自動表示
+  "editor.quickSuggestions": {
+    "comments": false, // コメント内では無効
+    "strings": true, // 文字列内では有効
+    "other": true //  その他の場所で有効
+  },
+  // JSXの閉じタグをHTMLの様に補完させる
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  // 各言語フォーマット設定
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+    // スニペット設定
+  "snippetsByPattern.snippets": {
+    //- ==========================================================================
+    //- pug
+    //- ==========================================================================
+    "**/*.pug": {
+      "P": {
+        "prefix": "p",
+        "body": ["p", "  |$1"]
+      },
+      "Li": {
+        "prefix": "li",
+        "body": ["li", "  |$1"]
+      },
+      "Table": {
+        "prefix": "table",
+        "body": [
+          "table",
+          "  tbody",
+          "    tr",
+          "      th",
+          "        |",
+          "      td",
+          "        |"
+        ]
+      },
+      "ANormal": {
+        "prefix": "a-normal",
+        "body": ["a(href=`${page.path}$1`)"]
+      },
+      "AOut": {
+        "prefix": "a-out",
+        "body": [
+          "a(href=`${page.path}$1` target='_blank' rel='noopener noreferrer')"
+        ]
+      },
+      "Onclick": {
+        "prefix": "onclick",
+        "body": "onclick=`location.href='$1'`"
+      },
+      "Target": {
+        "prefix": "target",
+        "body": ["target='_blank' rel='noopener noreferrer'"]
+      }
+    },
+    //- ==========================================================================
+    //- scss
+    //- ==========================================================================
+    "**/*.scss": {
+      "Theme": {
+        "prefix": "theme",
+        "body": "theme('$1');"
+      },
+      "Hover": {
+        "prefix": "@hover",
+        "body": "@include hover {$1}"
+      },
+      "Vw": {
+        "prefix": "vw",
+        "body": ["vw($1,$2);"]
+      },
+      "Vh": {
+        "prefix": "vh",
+        "body": ["vh($1,$2);"]
+      },
+      "Rem": {
+        "prefix": "rem",
+        "body": ["rem($1);"]
+      },
+      "Color": {
+        "prefix": "c",
+        "body": ["color: c(${1:white-nl});"]
+      },
+      "BackgroundColor": {
+        "prefix": "bg",
+        "body": ["background-color: c(${1:white-nl});"]
+      },
+      "FontWeight": {
+        "prefix": "fw",
+        "body": ["font-weight: fw(${1:bold});"]
+      },
+      "FontFamily": {
+        "prefix": "ff",
+        "body": ["font-family: ff(${1:ja});"]
+      },
+      "L-more-than-mobile": {
+        "prefix": "@more",
+        "body": "@include l-more-than-mobile {$1}"
+      },
+      "L-pc": {
+        "prefix": "@pc",
+        "body": "@include l-pc {$1}"
+      },
+      "L-tablet": {
+        "prefix": "@tablet",
+        "body": "@include l-tablet {$1}"
+      },
+      "L-mobile": {
+        "prefix": "@mobile",
+        "body": "@include l-mobile {$1}"
+      },
+      "Print": {
+        "prefix": "@print",
+        "body": "@include print {$1}"
+      }
+    }
+  },
+}

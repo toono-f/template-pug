@@ -1,0 +1,36 @@
+-
+  //- キャッシュ対策
+  const d = new Date();
+  const DateTimeFormat = "YYYYMMDDhhmiss";
+  let toFileName = DateTimeFormat.replace(/YYYY/g, String(d.getFullYear()))
+    .replace(/MM/g, ("0" + (d.getMonth() + 1)).slice(-2))
+    .replace(/DD/g, ("0" + d.getDate()).slice(-2))
+    .replace(/hh/g, ("0" + d.getHours()).slice(-2))
+    .replace(/mi/g, ("0" + d.getMinutes()).slice(-2))
+    .replace(/ss/g, ("0" + d.getSeconds()).slice(-2));
+
+block vars
+
+include ../_mixin/_picture.pug
+include ../_mixin/_breadcrumb.pug
+
+doctype html
+html(lang="ja")
+  head
+    include ./_head.pug
+  body
+    .l-page.js-page(data-page-id=page.id)
+      include ./_header.pug
+      block contentFixedBefore
+      .l-contents.js-contents(data-page-id=page.id)
+        // Start to define the main content.
+        block contentStatic
+        // End to define the main content.
+      block contentFixedAfter
+      include ./_footer.pug
+    block script
+    script(src=`${page.path}assets/js/main.js?${toFileName}` defer)
+    //- jqueryを読み込む場合
+    //- script(src=`${page.path}assets/js/jquery-3.6.0.min.js`)
+    //- jqueryを記述するファイル
+    //- script(src=`${page.path}assets/js/vendor.js?${toFileName}`)

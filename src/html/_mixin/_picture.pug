@@ -1,0 +1,15 @@
+-
+  const breakpoint_tb = 1024;
+  const breakpoint_sp = 768;
+  const sp = `(max-width: ${breakpoint_sp - 1}px)`
+  const tb = `(max-width: ${breakpoint_tb - 1}px)`
+  //- ※メディアクエリ同様 em で指定してしまうと、実際の端末で向きを変更したときに正しく動かないので px で指定している
+  const webp = "image/webp"
+
+mixin source(source,media,type)
+  source(srcset=source media=media type=type)
+mixin picture(src, alt, srcset, width, height, lazy, decoding="async")
+  picture&attributes(attributes)
+    if block
+      block
+    img(src=src alt=alt srcset=srcset width=width height=height loading=lazy decoding=decoding)

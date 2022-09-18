@@ -1,0 +1,18 @@
+mixin heading(breadcrumbList)
+
+  //- パンくずリスト （microdataによる構造化)
+  ol(itemscope itemtype='https://schema.org/BreadcrumbList').p-breadcrumbs-nl
+    li(itemprop='itemListElement' itemscope='' itemtype='https://schema.org/ListItem')
+      a(itemprop='item' href=`${page.path}${data[page.root]["index"]["directory"]}`)
+        span(itemprop='name') #{data[page.root]["index"]["title"]}
+      meta(itemprop='position' content='1')
+    each object, key in breadcrumbList
+      if object["id"] === object["category"]
+        li(itemprop='itemListElement' itemscope='' itemtype='https://schema.org/ListItem')
+          a(itemprop='item' href=`${page.path}${object["directory"]}`)
+            span(itemprop='name') #{object["title"]}
+          meta(itemprop='position' content=key+2)
+      else
+        li(itemprop='itemListElement' itemscope='' itemtype='https://schema.org/ListItem')
+          span(itemprop='name') #{object["title"]}
+          meta(itemprop='position' content=key+2)

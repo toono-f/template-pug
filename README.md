@@ -110,8 +110,8 @@ https://wpqw.jp/snippet/webfont/
 |tasks/clean.js|開発サーバー起動時（yarn start）もしくはビルド時（yarn build）にdst、buildディレクトリ下のファイルを全て消去する。|
 |tasks/cleanCSS.js|ビルド時のCSSファイル圧縮、メディアクエリごとに並び替え、purgeのON/OFFを設定する。<br>未使用のCSSを削除したい場合は28〜36行目のコメントを解除する。|
 |tasks/copy.js|開発サーバー起動時もしくはビルド時に、src（public）ディレクトリ配下にあるファイルをdst、buildディレクトリ下にコピーする。|
-|tasks/imagemin-webp.js|srcディレクトリ下にある画像ファイル（png, jpg）をwebpに変換し、dst、buildディレクトリ下にコピーする。<br>webp変換時の圧縮度も設定できる。|
-|tasks/imagemin.js|srcディレクトリ下にある画像ファイル（png, jpg）を圧縮し、dst、buildディレクトリ下にコピーする。|
+|tasks/imagemin-webp.js|srcディレクトリ下にある画像ファイル（png,jpg）をwebpに変換し、dst、buildディレクトリ下にコピーする。<br>webp変換時の圧縮度も設定できる。|
+|tasks/imagemin.js|srcディレクトリ下にある画像ファイル（png,jpg）を圧縮し、dst、buildディレクトリ下にコピーする。|
 |tasks/pug.js|pugをhtmlに変換する上での設定ファイル。|
 |tasks/replace.js|ビルド後のHTMLのエラーチェック、ファイル名の変更を行う。<br>build時におけるhtmlの圧縮を行いたい場合は12~17行目のコメントを解除する。|
 |tasks/sass.js|scssをcssに変換する上での設定ファイル。<br>IEに対応させる場合は該当コメントを解除する。|
@@ -122,7 +122,7 @@ https://wpqw.jp/snippet/webfont/
 ## srcディレクトリ下のファイルに関する説明
 |name|purpose|
 | ---- | ---- |
-|css|本ディレクトリ直下にある ''main.scss'' で読み込ませるscssファイルを配置する。<br>ファイル名の先頭に「_」が含まれている場合、cssへの変換対象から外れる。<br>CSS設計はFLOCSS、命名規則はBEMを採用している。|
+|css|本ディレクトリ直下にある `main.scss`で読み込ませるscssファイルを配置する。<br>ファイル名の先頭に「_」が含まれている場合、cssへの変換対象から外れる。<br>CSS設計はFLOCSS、命名規則はBEMを採用している。|
 |file|画像以外のファイル（pdfやdoc、xlsx、mp4等）を配置する。<br>圧縮されずにdst、buildディレクトリにそのままコピーされる。|
 |font|（CSS経由で読み込ませる場合のみ）フォントファイルを配置する。<br>dst、buildディレクトリにそのままコピーされる。|
 |html|pugを配置する。&br;ファイル名の先頭に「_」が含まれている場合、htmlへの変換対象から外れる。|

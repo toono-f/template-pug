@@ -25,11 +25,8 @@
 
 # Node.jsのバージョン
 14.18.1（npmは6.14.15を推奨）
-- パッケージ「slash」をv4.0.0以上にアップデートしない。
-https://github.com/sindresorhus/slash/releases
-
-- パッケージ「gulp-imagemin」はv8.0.0以上にアップグレードしない。
-https://crieit.net/posts/gulp-imagemin-become-pure-esm-package-20210817
+- パッケージ「slash」をv4.0.0以上にアップデートしない。<br>https://github.com/sindresorhus/slash/releases
+- パッケージ「gulp-imagemin」はv8.0.0以上にアップグレードしない。<br>https://crieit.net/posts/gulp-imagemin-become-pure-esm-package-20210817
 
 # コーディング方針
 - HTML: HTML5（Pug）
@@ -162,8 +159,8 @@ https://wpqw.jp/snippet/webfont/
 |main.js|上記のjsファイルをimportするjsファイル。webpackによる変換対象。|
 
 # エラー解決まとめ
-- build後のhtmlで読み込まれるはずの「main.min.css」もしくは「main.min.js」のパスが「main.css」もしくは「main.js」になってしまった。
+- build後のhtmlで読み込まれるはずの「main.min.css」もしくは「main.min.js」のパスが「main.css」もしくは「main.js」になってしまった。<br>
 →ejs内で「◯◯-main.css-◯◯」「◯◯-main.js-◯◯」のような文字の羅列がなくなるように修正する。
 
-- yarn start後にホットリロードが効かない。
+- yarn start後にホットリロードが効かない。<br>
 →各ローカル環境によって稀に効かなくなることがありますので、数回お試しください。

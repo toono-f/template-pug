@@ -125,7 +125,7 @@ https://wpqw.jp/snippet/webfont/
 |css|本ディレクトリ直下にある `main.scss`で読み込ませるscssファイルを配置する。<br>ファイル名の先頭に「_」が含まれている場合、cssへの変換対象から外れる。<br>CSS設計はFLOCSS、命名規則はBEMを採用している。|
 |file|画像以外のファイル（pdfやdoc、xlsx、mp4等）を配置する。<br>圧縮されずにdst、buildディレクトリにそのままコピーされる。|
 |font|（CSS経由で読み込ませる場合のみ）フォントファイルを配置する。<br>dst、buildディレクトリにそのままコピーされる。|
-|html|pugを配置する。&br;ファイル名の先頭に「_」が含まれている場合、htmlへの変換対象から外れる。|
+|html|pugを配置する.<br>ファイル名の先頭に「_」が含まれている場合、htmlへの変換対象から外れる。|
 |images|画像ファイルを配置する。<br>no_compressフォルダ以下にある画像は圧縮されずにbuildディレクトリにそのままコピーされる。|
 |js|JavaScriptファイルを配置する。<br>main.jsでimportしてwebpackによる変換を行いたいJSファイルは「init」ディレクトリに、<br>そのまま利用するJSファイルは「vendor」ディレクトリに配置する。|
 |data.json|各ページのmeta情報やパス、配置ディレクトリ等の情報を設定する。<br>こちらで設定したものを使ってpug内で分岐処理を行うことが可能。|
@@ -148,7 +148,6 @@ https://wpqw.jp/snippet/webfont/
 
 ※FLOCSS、BEMに関しては以下参考。そこまで厳密に設計しなくてもOKです。<br>
 参考：https://zenn.dev/yurukei20/articles/df151d3b276fbc
-
 ## jsディレクトリ下のファイルに関する説明
 |name|purpose|
 | ---- | ---- |

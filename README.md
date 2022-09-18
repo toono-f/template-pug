@@ -14,6 +14,7 @@
 |yarn serve|publicディレクトリのファイルをbuildディレクトリにコピーし、サーバーを起動させる|
 |yarn fix:css|cssの構文チェックから整形まで行うコマンド|
 |yarn fix:js|jsの構文チェックから整形まで行うコマンド|
+|yarn validate|buildディレクトリのHTML構文エラーをチェックするコマンド|
 
 # Main Folders
 | folder | purpose |
@@ -24,11 +25,10 @@
 
 # Node.jsのバージョン
 14.18.1（npmは6.14.15を推奨）
-
-●パッケージ「slash」をv4.0.0以上にアップデートしない。
+- パッケージ「slash」をv4.0.0以上にアップデートしない。
 https://github.com/sindresorhus/slash/releases
 
-●パッケージ「gulp-imagemin」はv8.0.0以上にアップグレードしない。
+- パッケージ「gulp-imagemin」はv8.0.0以上にアップグレードしない。
 https://crieit.net/posts/gulp-imagemin-become-pure-esm-package-20210817
 
 # コーディング方針
@@ -52,7 +52,7 @@ https://crieit.net/posts/gulp-imagemin-become-pure-esm-package-20210817
 ブレイクポイントの設定は「src/css/foundation/_variables.scss」を参照してください。
 設定したブレイクポイントを用いた関数を「src/css/foundation/_mixin-utils.scss」で用意しております。
 ## html
-- 全てのファイルを.EJSで記述する。
+- 全てのファイルを.pugで記述する。
 - リンクはルート相対パスで指定する。
 ## CSS
 - 全てのファイルを.scssで記述する。
@@ -69,7 +69,7 @@ https://crieit.net/posts/gulp-imagemin-become-pure-esm-package-20210817
 - ビルド時に最適化を行うため制作段階では画質を落としたり圧縮したりする必要はありません<br>圧縮された画像はビルド後に /build/assets/images/no_compress/ 以下に配置されます。<br>※ 画像を圧縮させたくない場合は「no_compress」というフォルダを作成し、その配下に配置する。
 ## フォント
 - Googleフォントを利用する場合はCDN + preload<br>それ以外のフォントを読み込ませる場合はサブセット化したものをCSS + preloadを使って読み込ませることを推奨（2022年3月現在）
-  * 和文フォントファイルをCSS経由で読み込ませる場合、サブセット化を行い圧縮したものをCSSで読み込ませる。<br>また、headタグにwoff2ファイルのpreloadの記述を行うことでCore Web Vitals（LCP、CLS）への影響を軽減できる。
+  * 和文フォントファイルをCSS経由で読み込ませる場合、サブセット化を行い圧縮したものをCSSで読み込ませる。また、headタグにwoff2ファイルのpreloadの記述を行うことでCore Web Vitals（LCP、CLS）への影響を軽減できる。
   * CDNを利用する場合、preloadの記述を行うことでCore Web Vitals（LCP、CLS）への影響を軽減できる。
 ### preload記述参考
 ①同サーバー内に配置する場合
@@ -86,12 +86,8 @@ https://crieit.net/posts/gulp-imagemin-become-pure-esm-package-20210817
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'" />
 ```
-※サブセット化参考（windows、mac共に以下ツールを利用できます）
+※サブセット化参考（windows、mac共に以下ツールを利用できます）<br>
 https://wpqw.jp/snippet/webfont/
-●サブセットフォントメーカー
-https://opentype.jp/subsetfontmk.htm
-●WOFFコンバータ
-https://opentype.jp/woffconv.htm
 
 # 概要
 |name|purpose|
@@ -129,11 +125,11 @@ https://opentype.jp/woffconv.htm
 ## srcディレクトリ下のファイルに関する説明
 |name|purpose|
 | ---- | ---- |
-|_layout|headやheader、footer等共通パーツを管理する。|
 |css|本ディレクトリ直下にある ''main.scss'' で読み込ませるscssファイルを配置する。<br>ファイル名の先頭に「_」が含まれている場合、cssへの変換対象から外れる。<br>CSS設計はFLOCSS、命名規則はBEMを採用している。|
 |file|画像以外のファイル（pdfやdoc、xlsx、mp4等）を配置する。<br>圧縮されずにdst、buildディレクトリにそのままコピーされる。|
-|font|（CSS経由で読み込ませる場合のみ）フォントファイルを配置する。<br>dst、buildディレクトリにそのままコピーされる。
-|images|画像ファイルを配置する。<br>no_compressフォルダ以下にある画像は圧縮されずにbuildディレクトリにそのままコピーされる。
+|font|（CSS経由で読み込ませる場合のみ）フォントファイルを配置する。<br>dst、buildディレクトリにそのままコピーされる。|
+|html|pugを配置する。&br;ファイル名の先頭に「_」が含まれている場合、htmlへの変換対象から外れる。|
+|images|画像ファイルを配置する。<br>no_compressフォルダ以下にある画像は圧縮されずにbuildディレクトリにそのままコピーされる。|
 |js|JavaScriptファイルを配置する。<br>main.jsでimportしてwebpackによる変換を行いたいJSファイルは「init」ディレクトリに、<br>そのまま利用するJSファイルは「vendor」ディレクトリに配置する。|
 |data.json|各ページのmeta情報やパス、配置ディレクトリ等の情報を設定する。<br>こちらで設定したものを使ってejs内で分岐処理を行うことが可能。|
 ## cssディレクトリ下のファイルに関する説明
@@ -150,10 +146,10 @@ https://opentype.jp/woffconv.htm
 |main.scss|上記のscssファイルをimportするscssファイル。<br>読み込みたいscssファイルの設定や、読み込み順は本ファイルで設定する。|
 ※main.css以外の親CSSファイルも追加することは可能です。
 
-●Dart Sassを採用しているため、従来までと除算の記述が異なります。
+※Dart Sassを採用しているため、従来までと除算の記述が異なります。<br>
 参考：https://kaminarimagazine.com/web/2021/07/09/divide-by-slash-is-deprecated-and-will-be-removed/
 
-●FLOCSS、BEMに関しては以下参考。そこまで厳密に設計しなくてもOKです。
+※FLOCSS、BEMに関しては以下参考。そこまで厳密に設計しなくてもOKです。<br>
 参考：https://zenn.dev/yurukei20/articles/df151d3b276fbc
 
 ## jsディレクトリ下のファイルに関する説明
@@ -166,8 +162,8 @@ https://opentype.jp/woffconv.htm
 |main.js|上記のjsファイルをimportするjsファイル。webpackによる変換対象。|
 
 # エラー解決まとめ
-●build後のhtmlで読み込まれるはずの「main.min.css」もしくは「main.min.js」のパスが「main.css」もしくは「main.js」になってしまった。
+- build後のhtmlで読み込まれるはずの「main.min.css」もしくは「main.min.js」のパスが「main.css」もしくは「main.js」になってしまった。
 →ejs内で「◯◯-main.css-◯◯」「◯◯-main.js-◯◯」のような文字の羅列がなくなるように修正する。
 
-●yarn start後にホットリロードが効かない。
+- yarn start後にホットリロードが効かない。
 →各ローカル環境によって稀に効かなくなることがありますので、数回お試しください。

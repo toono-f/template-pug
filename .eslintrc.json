@@ -3,7 +3,7 @@
   "root": true,
   "env": {
     "browser": true,
-    "es7": true,
+    "es2020": true,
     "node": true,
     "jquery": true
   },

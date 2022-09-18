@@ -112,7 +112,7 @@ https://wpqw.jp/snippet/webfont/
 |tasks/copy.js|開発サーバー起動時もしくはビルド時に、src（public）ディレクトリ配下にあるファイルをdst、buildディレクトリ下にコピーする。|
 |tasks/imagemin-webp.js|srcディレクトリ下にある画像ファイル（png, jpg）をwebpに変換し、dst、buildディレクトリ下にコピーする。<br>webp変換時の圧縮度も設定できる。|
 |tasks/imagemin.js|srcディレクトリ下にある画像ファイル（png, jpg）を圧縮し、dst、buildディレクトリ下にコピーする。|
-|tasks/ejs.js|ejsをhtmlに変換する上での設定ファイル。|
+|tasks/pug.js|pugをhtmlに変換する上での設定ファイル。|
 |tasks/replace.js|ビルド後のHTMLのエラーチェック、ファイル名の変更を行う。<br>build時におけるhtmlの圧縮を行いたい場合は12~17行目のコメントを解除する。|
 |tasks/sass.js|scssをcssに変換する上での設定ファイル。<br>IEに対応させる場合は該当コメントを解除する。|
 |tasks/scripts.js|jsファイルのバンドル、トランスパイル（ES6→ES5の変換）を行う上での設定ファイル。|
@@ -128,7 +128,7 @@ https://wpqw.jp/snippet/webfont/
 |html|pugを配置する。&br;ファイル名の先頭に「_」が含まれている場合、htmlへの変換対象から外れる。|
 |images|画像ファイルを配置する。<br>no_compressフォルダ以下にある画像は圧縮されずにbuildディレクトリにそのままコピーされる。|
 |js|JavaScriptファイルを配置する。<br>main.jsでimportしてwebpackによる変換を行いたいJSファイルは「init」ディレクトリに、<br>そのまま利用するJSファイルは「vendor」ディレクトリに配置する。|
-|data.json|各ページのmeta情報やパス、配置ディレクトリ等の情報を設定する。<br>こちらで設定したものを使ってejs内で分岐処理を行うことが可能。|
+|data.json|各ページのmeta情報やパス、配置ディレクトリ等の情報を設定する。<br>こちらで設定したものを使ってpug内で分岐処理を行うことが可能。|
 ## cssディレクトリ下のファイルに関する説明
 |name|purpose|
 | ---- | ---- |
@@ -160,7 +160,7 @@ https://wpqw.jp/snippet/webfont/
 
 # エラー解決まとめ
 - build後のhtmlで読み込まれるはずの「main.min.css」もしくは「main.min.js」のパスが「main.css」もしくは「main.js」になってしまった。<br>
-→ejs内で「◯◯-main.css-◯◯」「◯◯-main.js-◯◯」のような文字の羅列がなくなるように修正する。
+→pug内で「◯◯-main.css-◯◯」「◯◯-main.js-◯◯」のような文字の羅列がなくなるように修正する。
 
 - yarn start後にホットリロードが効かない。<br>
 →各ローカル環境によって稀に効かなくなることがありますので、数回お試しください。

@@ -93,10 +93,6 @@ option {
   margin: 0;
 }
 
-select::-ms-expand {
-  display: none;
-}
-
 input::placeholder {
   color: rgba(c(default), 0.5);
 }

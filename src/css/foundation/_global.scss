@@ -15,8 +15,8 @@ body {
   color: c(default);
   letter-spacing: ls(xs);
   // アンチエイリアスを調節（mac）
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
   @include mq(xl) {
     font-size: rem(16);
     // あえて順に記載（build後のmqpackerを考慮）
